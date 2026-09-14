@@ -18,22 +18,34 @@ export default function Hero() {
       aria-label="Página inicial"
     >
       <div className="floating-card relative overflow-hidden min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] xl:min-h-[720px] flex flex-col justify-end p-6 sm:p-10 lg:p-16 bg-charcoal">
-        {/* Background Image filling the entire hero */}
-        <Image
-          src="/images/dr-hermes-hero.webp"
-          alt="Dr. Hermes Dário de Azevedo Junior — HD Odontologia"
-          fill
-          className="object-cover object-[center_6%] sm:object-[center_10%] lg:object-[70%_15%]"
-          priority
-          sizes="100vw"
-        />
+        {/* Mobile Background Image (Portrait) */}
+        <div className="lg:hidden absolute inset-0">
+          <Image
+            src="/images/dr-hermes-hero.webp"
+            alt="Dr. Hermes Dário de Azevedo Junior — HD Odontologia"
+            fill
+            className="object-cover object-[center_6%] sm:object-[center_10%]"
+            priority
+            sizes="100vw"
+          />
+          {/* Mobile Gradient: darker at bottom for text contrast, clear at top for Dr. Hermes smile */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/85 via-48% to-transparent pointer-events-none" />
+        </div>
 
-        {/* Mobile Gradient: darker at bottom for text contrast, clear at top for Dr. Hermes smile */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/85 via-48% to-transparent pointer-events-none" />
-
-        {/* Desktop Gradients: left side scrim for editorial typography, Dr. Hermes clear on right */}
-        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 via-45% to-transparent to-75% pointer-events-none" />
-        <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent pointer-events-none" />
+        {/* Desktop Background Image (Landscape) */}
+        <div className="hidden lg:block absolute inset-0">
+          <Image
+            src="/images/dr-hermes-hero-desktop.webp"
+            alt="Dr. Hermes Dário de Azevedo Junior — HD Odontologia"
+            fill
+            className="object-cover object-[62%_20%] xl:object-[65%_25%]"
+            priority
+            sizes="100vw"
+          />
+          {/* Desktop Gradients: left side scrim for editorial typography, Dr. Hermes clear on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 via-42% to-transparent to-75% pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent pointer-events-none" />
+        </div>
 
         {/* Content on top of image */}
         <div
